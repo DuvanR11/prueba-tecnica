@@ -1,0 +1,12 @@
+<app-modal modalId="add-playlist">
+    <div class="modal">
+      <h2>Add a song</h2>
+      <form [formGroup]="playLitsForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="title">Nombre</label>
+          <input type="text" id="title" formControlName="title" />
+        </div>
+        <button type="submit" [disabled]="isLoading">Create</button>
+      </form>
+    </div>
+</app-modal>

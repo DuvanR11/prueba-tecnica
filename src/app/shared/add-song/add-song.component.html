@@ -1,0 +1,25 @@
+<app-modal modalId="upload">
+  <div class="modal">
+    <h2>Add a song</h2>
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Song title</label>
+        <input type="text" id="title" formControlName="title" />
+      </div>
+      <div>
+        <label for="author">Song author</label>
+        <input type="text" id="author" formControlName="author" />
+      </div>
+      <div>
+        <label for="song">Select a song file</label>
+        <input type="file" id="song" accept=".mp3" (change)="onFileChange($event, 'song')" />
+      </div>
+      <div>
+        <label for="image">Select an image</label>
+        <input type="file" id="image" (change)="onFileChange($event, 'image')" />
+      </div>
+      <button type="submit" [disabled]="isLoading">Create</button>
+    </form>
+  </div>
+</app-modal>
+  

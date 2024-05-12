@@ -1,0 +1,72 @@
+<div class="h-fit bg-gradient-to-b from-emerald-800 p-6">
+    <div class="w-full mb-4 flex items-center justify-between">
+      <div class="hidden md:flex gap-x-2 items-center">
+        <button class="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" (click)="goBack()">
+          <img src="assets/svgs/arrowLeft.svg">
+        </button>
+        <button class="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" (click)="goForward()">
+          <img src="assets/svgs/arrowRigth.svg">
+        </button>
+      </div>
+      <div class="flex md:hidden gap-x-2 items-center">
+        <button class="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75" (click)="goHome()">
+            <fa-icon [icon]="faHome" size="sm" class="text-black"></fa-icon>
+        </button>
+        <button class="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75" (click)="goSearch()">
+            <fa-icon [icon]="faSearch" size="sm" class="text-black"></fa-icon>
+        </button>
+      </div>
+      <div class="flex justify-between items-center gap-x-4">
+        <ng-container *ngIf="session; else anonymousUser">
+          <div>
+            <button 
+                type="button" 
+                class="w-full rounded-full border border-transparent disabled:cursor-not-allowed disabled:opacity-50 text-black font-bold hover:opacity-75 transition bg-white px-6 py-2"
+                (click)="logout()"
+              >
+              Cerrar sesión
+            </button>
+          </div>
+          <div>
+            <button 
+              type="button" 
+              class="w-full rounded-full border border-transparent px-3 py-3 disabled:cursor-not-allowed disabled:opacity-50 text-black font-bold hover:opacity-75 transition bg-white"
+              (click)="goToAccount()"
+            >
+              <img src="assets/svgs/user.svg">
+            </button>
+          </div> 
+        </ng-container>
+        <ng-template #anonymousUser>
+          <div>
+            <button 
+              type="button" 
+              class="w-full rounded-full border border-transparent px-3 py-3 disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-75 transition bg-transparent text-neutral-300 font-medium"
+              (click)="openSignUpModal('sign-up')"
+              >
+              Regístrate
+            </button>
+          </div>
+          <div>
+            <button 
+              type="button" 
+              class="w-full rounded-full border border-transparent disabled:cursor-not-allowed disabled:opacity-50 text-black font-bold hover:opacity-75 transition bg-white px-6 py-2"
+              (click)="openLogInModal('sign-in')"
+            >
+              Iniciar sesión
+            </button>
+          </div> 
+        </ng-template>
+      </div>
+    </div>
+    <ng-content></ng-content>
+</div>
+  
+
+<app-modal
+  modalId="sign-in"
+  title="Título del modal"
+  description="Descripción del modal"
+>
+  <app-sign-in></app-sign-in>
+</app-modal>

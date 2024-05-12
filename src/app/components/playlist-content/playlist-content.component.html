@@ -1,0 +1,26 @@
+  <div *ngIf="isLoading">
+    <!-- Aquí podrías mostrar un indicador de carga -->
+    Loading...
+  </div>
+  
+  <div *ngIf="!isLoading && songs.length === 0">
+    <!-- Aquí podrías mostrar un mensaje indicando que no hay canciones marcadas como favoritas -->
+    No liked songs.
+  </div>
+  
+  <div class="flex flex-col gap-y-1 mb-4">
+    <h1 class="text-white text-3xl font-semibold">Recomendaciones</h1>
+    <h3 class="text-white text-sm">Basado en el contenido de esta playlist</h3>
+  </div>
+
+  <div *ngIf="!isLoading && songs.length > 0">
+    <!-- Aquí se muestra la lista de canciones marcadas como favoritas -->
+    <div *ngFor="let song of songs" class="mb-4">
+        <app-media-item 
+            [data]="song" 
+            [action]="true"
+        >
+        </app-media-item>
+    </div>
+  </div>
+  

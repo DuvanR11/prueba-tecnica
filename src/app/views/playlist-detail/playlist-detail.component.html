@@ -1,0 +1,85 @@
+<div class="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
+    <app-header>
+        <div class="mt-20">
+            <div
+              class="
+                flex 
+                flex-col 
+                md:flex-row 
+                items-center 
+                gap-x-5
+              "
+            >
+              <div class="relative h-32 w-32 lg:h-44 lg:w-44">
+                <img
+                  class="object-cover"
+                  fill
+                  src="assets/images/liked.png"
+                  alt="Playlist"
+                />
+              </div>
+              <div class="flex flex-col gap-y-2 mt-4 md:mt-0">
+                <p class="hidden md:block font-semibold text-white text-sm"> {{playlist.title}}</p>
+                <h1
+                  class="
+                    text-white 
+                    text-4xl 
+                    sm:text-5xl 
+                    lg:text-7xl 
+                    font-bold
+                  "
+                >
+                  {{playlist.title}}
+                </h1>
+              </div>
+            </div>
+        </div>
+    </app-header>
+
+    <div class="p-6">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-transparent dark:text-gray-500">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        #
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Titulo
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Genero
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let song of playListSongs">
+                <tr class="bg-white border-b dark:bg-transparent dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-neutral-800">
+                    <td class="px-6 py-4">
+                        1
+                    </td>
+                    <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                        <img class="w-10 h-10 rounded-full" src="assets/images/liked.png" alt="Jese image">
+                        <div class="ps-3">
+                            <div class="text-base font-semibold">{{ song.songs.title }}</div>
+                            <div class="font-normal text-gray-500">{{ song.songs.title }}</div>
+                        </div>  
+                    </th>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="p-6">
+        <app-playlist-content [songs]="songs"></app-playlist-content>
+    </div>
+</div>

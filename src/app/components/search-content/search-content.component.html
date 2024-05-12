@@ -1,0 +1,15 @@
+<div *ngIf="!songs?.length" class="flex flex-col gap-y-2 w-full px-6 text-neutral-400">
+    No se encontro canciones
+</div>
+
+<div *ngIf="songs?.length" class="flex flex-col gap-y-2 w-full px-6">
+  <div *ngFor="let song of songs" class="flex items-center gap-x-4 w-full">
+    <div class="flex-1">
+      <app-media-item 
+        [data]="song" 
+        (click)="onSongItemClick(song.link)"
+      >
+      </app-media-item>
+    </div>
+  </div>
+</div>

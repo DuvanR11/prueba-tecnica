@@ -1,0 +1,20 @@
+<div class="flex justify-between pr-3 items-center gap-x-3 cursor-pointer hover:bg-neutral-800/50 w-full rounded-md">
+  <div class="flex gap-5">
+    <div class="relative rounded-md max-h-[48px] max-w-[48px] min-h-[48px] min-w-[48px] overflow-hidden">
+      <img [src]="'assets/images/liked.png'" alt="Media Item" class="object-cover" />
+    </div>
+    <div class="flex flex-col gap-y-1 overflow-hidden">
+      <p class="text-white truncate">{{ data.title }}</p>
+      <p class="text-neutral-400 text-sm truncate"> Bachata {{ data.genre }}</p>
+    </div>
+  </div>
+  @if (action) {
+    <button 
+      (click)="addToPlayList()"
+      class="bg-transparent font-semibold text-white py-1 px-4 border border-white  rounded-full"
+    >
+      Añadir
+    </button>
+  }
+</div>
+  

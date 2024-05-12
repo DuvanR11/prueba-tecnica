@@ -1,0 +1,21 @@
+ <div class="fixed bottom-0 bg-black w-full py-2" *ngIf="isOpenPlayer">
+    <div class="flex justify-between items-center px-3">
+        <div >
+          <app-media-item [data]="song"></app-media-item>
+        </div>
+
+        <audio *ngIf="song" [src]="song.song_path" controls></audio>
+      
+        <button
+          className="
+            cursor-pointer 
+            hover:opacity-75 
+            transition
+          "
+          (click)="addLikeSong()"
+        >
+          <img src="assets/svgs/like.svg">
+        </button>
+    </div>
+</div>
+  
